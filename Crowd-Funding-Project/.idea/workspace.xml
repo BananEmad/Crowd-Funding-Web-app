@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0474decd-fd74-4c51-987e-b2dae41683c6" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/Crowd-Funding-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Crowd-Funding-Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CrowdFunding/CrowdFunding/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CrowdFunding/CrowdFunding/settings.py" afterDir="false" />
@@ -38,6 +39,10 @@
       <change beforePath="$PROJECT_DIR$/CrowdFunding/static/JS/bootstrap.min.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CrowdFunding/static/JS/jquery-3.4.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/CrowdFunding/static/JS/libs/jquery-3.4.1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CrowdFunding/static/JS/jquery-3.4.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/CrowdFunding/static/JS/libs/jquery-3.4.1.min.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +55,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/templates/Home/Includes/header.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="384">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
+=======
+            <state relative-caret-position="22">
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/CrowdFunding/static/Css/MyStyle.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
@@ -84,6 +95,12 @@
                 <element signature="e#23729#23775#0" expanded="true" />
                 <element signature="e#26963#27018#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
             </state>
           </provider>
         </entry>
@@ -109,6 +126,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/templates/Home/Includes/footer.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -148,6 +166,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -361,7 +381,11 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18692206" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22413793" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -372,7 +396,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4993395" weight="0.46534654" />
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4993395" visible="true" weight="0.4648094" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006605" side_tool="true" weight="0.46534654" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -488,6 +516,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -507,11 +536,32 @@
           </folding>
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/venv/Scripts/activate" />
+    <entry file="file://$PROJECT_DIR$/venv/Scripts/activate.bat" />
+    <entry file="file://$PROJECT_DIR$/CrowdFunding/static/Css/MyStyle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrowdFunding/static/JS/MyScript">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CrowdFunding/Home/models.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="370">
           <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+=======
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+>>>>>>> ae50702dfb4994cb9241fb7df6ba3791bfe934d5
         </state>
       </provider>
     </entry>
