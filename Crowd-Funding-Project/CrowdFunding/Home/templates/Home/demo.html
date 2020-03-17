@@ -1,0 +1,25 @@
+{% extends  "Home/Includes/base.html" %}
+
+<!-- the title of page -->
+{% block title %}Projects{% endblock %}
+
+<!-- this is navbar : for active url ( index variable you can change it with index or project or you can make (li -> List of item) in nav.html and type in his class the name of call ) -->
+{% block navbar %}
+        {% include  "Home/Includes/nav.html" with index='current-menu-item' only %}
+{% endblock %}
+
+<!-- the contain of body -->
+{% block contain %}
+    <!--  this slider for any page only without index  -->
+    <!--
+        there is three variables
+        1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+        2- page_title_slide     >>>> this is will be the title of the slide
+        3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+     -->
+    {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Projects' page_subtitle_slide='what do you think about me ?' %}
+
+    <!--  here will be your section ( here )  -->
+
+
+{% endblock %}

@@ -1,0 +1,6 @@
+.hidden{
+    display:none
+}
+.nav-menu > li{
+    margin: 0 30px;
+}
