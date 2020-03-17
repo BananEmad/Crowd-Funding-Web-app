@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js page-loader-overflow-hidden">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %} default {% endblock %}</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+    {% include  "Home/Includes/header.html" %}
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<!-- Google Tag Manager (noscript) -->
+<!--<noscript>-->
+<!--    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPWGNL" height="0" width="0" style="display:none;visibility:hidden"></iframe>-->
+<!--</noscript>-->
+<!-- End Google Tag Manager -->
+
+<!-- Page Loader -->
+<div class="page-loader">
+	<div class="preloader-wheel active">
+		<div class="spinner-layer">
+			<div class="circle-clipper left">
+				<div class="circle"></div>
+			</div><!--
+            --><div class="gap-patch">
+				<div class="circle"></div>
+			</div><!--
+            --><div class="circle-clipper right">
+				<div class="circle"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--/ Page Loader -->
+{% block navbar %} {% endblock %}
+{% block contain %} {% endblock %}
+{% include  "Home/Includes/footer.html" %}
+{% include  "Home/Includes/jsfooter.html" %}
+
+
