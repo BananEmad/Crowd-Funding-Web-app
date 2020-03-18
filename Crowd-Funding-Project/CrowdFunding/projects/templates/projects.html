@@ -21,11 +21,11 @@
             <div class="fly-projects columns2 flex-container">
                 {% for project in all_projects %}
 
-                <div class="column">
+                <div class="column" onclick="location.href='{% url 'projects:project_details' project.id%}'" style="cursor: pointer;">
                     <!-- Project -->
                     <article class="fly-card fly-project fly-flip-effect" itemscope itemtype="http://schema.org/DonateAction">
                         <div class="boxed flip-front">
-                            <a class="project-media js-wave" href="project-details.html" itemprop="url">
+                            <a class="project-media js-wave"  itemprop="url">
                                 <img src="images/temp/project-1.jpg" alt="" itemprop="image" />
                                 <span class="progress">
                                     <span class="progress-label">0%</span>
@@ -52,7 +52,7 @@
                                     <ul class="project-stats">
                                         <li>
                                             <div class="label">raised</div>
-                                            <div class="value" data-raised="12731"><sup>$</sup>12,731</div>
+                                            <div class="value" data-raised="12731"><sup>$</sup>{{all_donations.donation_amount__sum}}</div>
                                         </li>
                                         <li>
                                             <div class="label">goal</div>
