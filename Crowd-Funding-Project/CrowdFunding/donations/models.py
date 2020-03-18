@@ -6,7 +6,7 @@ from projects.models import Projects
 
 
 class Donations (models.Model):
-    donation_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     donation_amount = models.IntegerField()
