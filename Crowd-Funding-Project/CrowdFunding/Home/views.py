@@ -11,4 +11,4 @@ def index(request):
 
 def project(request):
     # return HttpResponse("mohamed")
-    return render(request, "Home/project.html")
+    return render(request, "Home/projects.html")
