@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('project_id', models.AutoField(primary_key=True, serialize=False)),
                 ('project_title', models.CharField(max_length=40)),
                 ('project_details', models.TextField(default=' ')),
+                ('project_hint', models.TextField(default=' ')),
                 ('total_donation', models.IntegerField()),
                 ('start_time', models.DateTimeField()),
                 ('end_time', models.DateTimeField()),

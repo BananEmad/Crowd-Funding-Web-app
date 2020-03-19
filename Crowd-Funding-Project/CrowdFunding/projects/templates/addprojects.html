@@ -1,0 +1,112 @@
+{% extends  "Home/Includes/base.html" %}
+
+<!-- the title of page -->
+{% block title %}Add Projects{% endblock %}
+
+<!-- this is navbar : for active url ( index variable you can change it with index or project or you can make (li -> List of item) in nav.html and type in his class the name of call ) -->
+{% block navbar %}
+        {% include  "Home/Includes/nav.html" with project='current-menu-item' only %}
+{% endblock %}
+
+<!-- the contain of body -->
+{% block contain %}
+    <!--  this slider for any page only without index  -->
+    <!--
+        there is three variables
+        1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+        2- page_title_slide     >>>> this is will be the title of the slide
+        3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+     -->
+    {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='ِAdd Your Projects' page_subtitle_slide='what do you think about me ?' %}
+
+    <!--  here will be your section ( here )  -->
+    <!-- Page -->
+    <div class="page-wrapper page-sidebar"><!-- TODO: additional classes are: .page-sidebar, .page-sidebar-left, .page-narrow -->
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <main itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement" class="project-content">
+
+                    <!-- Donation Form -->
+                    <form action="#" method="post" id="donateForm" class="donate-form">
+                        <h4 class="title-styled">Make a Project</h4>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="project_title">TITLE</label>
+                                    <input class="form-control" type="text" id="project_title" name="project_title" placeholder="The Title Of Project" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="country">CATEGORY</label>
+                                    <select name="country" id="country" class="select2" data-placeholder="- select a category -">
+                                        <option value="">&nbsp;</option>
+                                        <option value="AF">Afghanistan</option>
+                                        <option value="AL">Albania</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DZ">Algeria</option>
+                                        <option value="AD">Andorra</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="total_donation">Donation</label>
+                                    <input class="form-control" type="text" id="total_donation" name="total_donation" placeholder="i.e 250000 EGP" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="project_image">Project Image</label>
+                                    <input class="form-control" type="file" id="project_image" name="project_image[]" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="start">START TIME</label>
+                                    <input class="form-control" type="date" id="start" name="start_time" placeholder="Enter Start Date" />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="end">END TIME</label>
+                                    <input class="form-control" type="date" id="end" name="end_time" placeholder="Enter End Date" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group required">
+                                    <label for="project_details">Details Of Project</label>
+                                    <textarea class="form-control" id="project_details" name="project_details" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group required">
+                                    <label for="tag">Add Tags</label>
+                                    <input class="form-control" type="text" id="tag" name="tag" placeholder="The Title Of Project" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-submit">
+                                    <button type="submit" class="btn btn-medium js-wave">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/ Project Form -->
+                </main>
+                <!--/ Content -->
+            </div>
+        </div>
+    </div>
+    <!--/ Page -->
+
+{% endblock %}
