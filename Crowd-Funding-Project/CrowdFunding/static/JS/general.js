@@ -49,6 +49,7 @@ jQuery(function($) {
 			this.lightBox(); // LightBox (swipeBox)
 			this.owlSlidersInit(); // Owl Carousels
 			this.statsCounter(false); // Statistics Digits, set to false to count only once
+//			this.progressCalc(); // Project Progress Calculation
 			this.headerVideo(); // Video in Header
 			this.thumbnailSlider(); // Thumbnail Slider in Portfolio Details
 

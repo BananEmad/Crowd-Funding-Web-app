@@ -536,125 +536,80 @@
     <section class="section padding-bottom-50">
         <div class="section-heading">
             <div class="container">
-                <div class="section-subtitle">RECENT BLOGPOSTS</div>
-                <h2 class="section-title">Latest from our Blog</h2>
+                <div class="section-subtitle">PROJECTS</div>
+                <h2 class="section-title">THE HIGHEST FIVE RATED</h2>
             </div>
         </div>
 
         <div class="container">
             <div class="fly-articles columns3 flex-container">
-                <div class="column">
-                    <!-- Post -->
-                    <article class="fly-card fly-article boxed" itemscope itemtype="http://schema.org/Article">
-                        <div class="boxed">
-                            <a class="post-media js-wave" href="blog-details.html" itemprop="url">
-                                <img src="images/temp/post-1.jpg" alt="" itemprop="image" />
-                            </a>
-
-                            <div class="post-content">
-                                <h3 class="post-title" itemprop="name">
-                                    <a href="blog-details.html">Here goes the Post Title</a>
-                                </h3>
-
-                                <div class="post-meta">
-                                    <time class="post-date" datetime="2016-12-12T20:04:09" itemprop="dateCreated">12 Dec 2016</time>
-                                    <a href="#" class="post-comments"><span itemprop="commentCount">26</span> comments</a>
-                                    <span class="post-category" itemprop="keywords">tagged in <a href="#">volunteer</a></span>
-                                    <!--<span class="post-author" itemprop="author">by <a href="#">John Doe</a></span>-->
-                                </div>
-
-                                <div class="post-description" itemprop="articleBody">
-                                    <p>
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                                    </p>
-                                </div>
-
-                                <div class="post-footer">
-                                    <div class="post-buttons">
-                                        <a href="blog-details.html" class="btn btn-transparent js-wave" itemprop="url">Read More</a>
+                <div class="owl-carousel owl-theme">
+                    {% for top in toprate %}
+                    <div class="item">
+                        <!-- Project -->
+                        <article class="fly-card fly-project fly-flip-effect" itemscope itemtype="http://schema.org/DonateAction">
+                            <div class="boxed flip-front">
+                                <a class="project-media js-wave" href="project-details.html" itemprop="url">
+                                    {% load static %}
+                                    <img src="{% static 'Images/temp/' %}project-1.jpg" alt="" itemprop="image" />
+                                    <span class="progress">
+                                        <span class="progress-label">0%</span>
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                </a>
+                                <div class="project-content">
+                                    <h3 class="project-title" itemprop="name">
+                                        <a href="project-details.html">{{top.project_title}}</a>
+                                    </h3>
+                                    <div class="project-location">
+                                        <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>Mombasa, Kenya</a>
+                                    </div>
+                                    <div class="project-description" itemprop="description">
+                                        <p class="projects_details">
+                                            {{top.project_details}}
+                                        </p>
+                                    </div>
+                                    <div class="project-footer">
+                                        <ul class="project-stats">
+                                            <li>
+                                                <div class="label">raised</div>
+                                                <div class="value" data-raised="12731"><sup>$</sup>12,731</div>
+                                            </li>
+                                            <li>
+                                                <div class="label">goal</div>
+                                                <div class="value" data-goal="22500" itemprop="target"><sup>$</sup>{{top.total_donation}}</div>
+                                            </li>
+                                        </ul>
+                                        <div class="project-buttons">
+                                            <a href="project-details.html#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-                    <!--/ Post -->
-                </div>
-
-                <div class="column">
-                    <!-- Post -->
-                    <article class="fly-card fly-article boxed" itemscope itemtype="http://schema.org/Article">
-                        <div class="boxed">
-                            <a class="post-media js-wave" href="blog-details.html" itemprop="url">
-                                <img src="images/temp/post-2.jpg" alt="" itemprop="image" />
-                            </a>
-
-                            <div class="post-content">
-                                <h3 class="post-title" itemprop="name">
-                                    <a href="blog-details.html">Here goes the Post Title</a>
-                                </h3>
-
-                                <div class="post-meta">
-                                    <time class="post-date" datetime="2016-12-12T20:04:09" itemprop="dateCreated">12 Dec 2016</time>
-                                    <a href="#" class="post-comments"><span itemprop="commentCount">26</span> comments</a>
-                                    <span class="post-category" itemprop="keywords">tagged in <a href="#">volunteer</a></span>
-                                    <!--<span class="post-author" itemprop="author">by <a href="#">John Doe</a></span>-->
-                                </div>
-
-                                <div class="post-description" itemprop="articleBody">
-                                    <p>
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                                    </p>
-                                </div>
-
-                                <div class="post-footer">
-                                    <div class="post-buttons">
-                                        <a href="blog-details.html" class="btn btn-transparent js-wave" itemprop="url">Read More</a>
+                            <div class="boxed flip-back">
+                                <div class="card-map" data-placeholder="waiting for map">
+                                    <div class="google-map"
+                                         data-map-zoom="14"
+                                         data-map-type="roadmap"
+                                         data-map-style="onehope"
+                                         data-map-address="1998 Hulman Blvd, Speedway, IN, 46222"
+                                         data-map-marker="images/marker.png"
+                                         data-map-marker-size="[31,46]"
+                                         data-map-marker-anchor="[16,46]">
+                                        <!-- May use data-map-coords="39.795180;-86.234819" instead of data-map-address -->
                                     </div>
                                 </div>
+                                <ul class="card-social">
+                                    <li><a href="#" class="fa fa-facebook js-wave"></a></li>
+                                    <li><a href="#" class="fa fa-twitter js-wave"></a></li>
+                                    <li><a href="#" class="fa fa-instagram js-wave"></a></li>
+                                    <li><a href="#" class="fa fa-google js-wave"></a></li>
+                                </ul>
                             </div>
-                        </div>
-                    </article>
-                    <!--/ Post -->
-                </div>
-
-                <div class="column">
-                    <!-- Post -->
-                    <article class="fly-card fly-article boxed" itemscope itemtype="http://schema.org/Article">
-                        <div class="boxed">
-                            <a class="post-media js-wave" href="blog-details.html" itemprop="url">
-                                <img src="images/temp/post-3.jpg" alt="" itemprop="image" />
-                            </a>
-
-                            <div class="post-content">
-                                <h3 class="post-title" itemprop="name">
-                                    <a href="blog-details.html">Here goes the Post Title</a>
-                                </h3>
-
-                                <div class="post-meta">
-                                    <time class="post-date" datetime="2016-12-12T20:04:09" itemprop="dateCreated">12 Dec 2016</time>
-                                    <a href="#" class="post-comments"><span itemprop="commentCount">26</span> comments</a>
-                                    <span class="post-category" itemprop="keywords">tagged in <a href="#">volunteer</a></span>
-                                    <!--<span class="post-author" itemprop="author">by <a href="#">John Doe</a></span>-->
-                                </div>
-
-                                <div class="post-description" itemprop="articleBody">
-                                    <p>
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-                                    </p>
-                                </div>
-
-                                <div class="post-footer">
-                                    <div class="post-buttons">
-                                        <a href="blog-details.html" class="btn btn-transparent js-wave" itemprop="url">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <!--/ Post -->
+                        </article>
+                        <!--/ Project -->
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
