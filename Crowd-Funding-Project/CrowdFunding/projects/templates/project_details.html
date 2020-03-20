@@ -190,23 +190,11 @@
                             <div class="thumbnail-slider clearfix" data-height="500">
                                 <div class="slider-images-wrap">
                                     <ul class="slider-images">
-                                        <li>
-                                            <img src="images/temp/project-1.jpg" alt="" itemprop="image"/>
+                                        {% for image in images_list %}
 
-                                            <a class="swipebox" data-rel="gallery1" href="images/temp/project-1.jpg" title="Image Title"></a>
-
-                                            <div class="description">
-                                                <h4 class="title"><span>Image Title</span></h4>
-                                                <div class="subtitle"><span>Write here Your image description</span></div>
-                                                <a href="#" class="description-close material-icons">close</a>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <img src="images/temp/project-2.jpg" alt="" itemprop="image"/>
-
-                                            <a class="swipebox" data-rel="gallery1" href="images/temp/project-2.jpg" title="Image Title"></a>
-
+                                        <li style="background-image: url (/static/images/temp/{{image}})">
+                                            <img src='/static/images/temp/{{image}}' alt="" itemprop="image"/>
+                                            <a class="swipebox" data-rel="gallery1" href="/static/images/temp/{{image}}" title="Image Title"></a>
                                             <div class="description bottom">
                                                 <h4 class="title"><span>Image Title</span></h4>
                                                 <div class="subtitle"><span>Write here Your image description</span></div>
@@ -214,29 +202,8 @@
                                             </div>
                                         </li>
 
-                                        <li>
-                                            <img src="images/temp/project-3.jpg" alt="" itemprop="image"/>
+                                                       {% endfor %}
 
-                                            <a class="swipebox" data-rel="gallery1" href="images/temp/project-3.jpg" title="Image Title"></a>
-
-                                            <div class="description top-right">
-                                                <h4 class="title"><span>Image Title</span></h4>
-                                                <div class="subtitle"><span>Write here Your image description</span></div>
-                                                <a href="#" class="description-close material-icons">close</a>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <img src="images/temp/project-4.jpg" alt="" itemprop="image"/>
-
-                                            <a class="swipebox" data-rel="gallery1" href="images/temp/project-4.jpg" title="Image Title"></a>
-
-                                            <div class="description bottom-right">
-                                                <h4 class="title"><span>Image Title</span></h4>
-                                                <div class="subtitle"><span>Write here Your image description</span></div>
-                                                <a href="#" class="description-close material-icons">close</a>
-                                            </div>
-                                        </li>
                                     </ul>
 
                                     <a href="#" class="prev material-icons js-wave">keyboard_arrow_left</a>
@@ -282,7 +249,7 @@
                                         <ul class="project-stats">
                                             <li>
                                                 <div class="label">raised</div>
-                                                <div class="value" data-raised="12731"><sup>$</sup>{{all_donations.donation_amount__sum}}</div>
+                                                <div class="value" data-raised="12731"><sup>$</sup>{{sumOfDonations}}</div>
                                             </li>
                                             <li>
                                                 <div class="label">goal</div>
@@ -291,8 +258,8 @@
                                         </ul>
 
                                        <div class="progress">
-                                            <span class="progress-label" style="left: 10%">10% </span>
-                                           <span class="progress-bar" style="width: 10%;"></span>
+                                            <span class="progress-label" style="left: {{Percentage}}%">{{Percentage}} % </span>
+                                           <span class="progress-bar" style="width: {{Percentage}}%;"></span>
                                             </div>
 
                                         <div class="project-buttons">

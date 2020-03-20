@@ -12,9 +12,11 @@ class Projects (models.Model):
     project_hint = models.TextField(default=' ')
     project_Location = models.CharField(max_length=500)
     total_donation = models.IntegerField()
+    donated = models.IntegerField(default=0)
+    Percentage = models.IntegerField(default=0)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tags, on_delete=models.CASCADE)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-
+    main_img_name = models.TextField(default=' ')
