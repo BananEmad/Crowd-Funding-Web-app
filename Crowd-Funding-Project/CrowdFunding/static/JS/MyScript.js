@@ -92,7 +92,10 @@ function truncateText(selector, maxLength,i) {
     }
     return truncated;
 }
-for(let i = 0;i < $(".projects_details").length; i++){
+for(let i = 0;i < $(".projects_slider").length; i++){
+    $(".projects_slider")[i].innerText = truncateText('.projects_slider', 150,i);
+}
 
-    $(".projects_details")[i].innerText = truncateText('.projects_details', 160,i);
+for(let i = 0;i < $(".projects_details").length; i++){
+    $(".projects_details")[i].innerText = truncateText('.projects_details', 250,i);
 }

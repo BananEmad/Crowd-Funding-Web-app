@@ -565,7 +565,7 @@
                                         <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>Mombasa, Kenya</a>
                                     </div>
                                     <div class="project-description" itemprop="description">
-                                        <p class="projects_details">
+                                        <p class="projects_slider text-justify">
                                             {{top.project_details}}
                                         </p>
                                     </div>
@@ -573,11 +573,11 @@
                                         <ul class="project-stats">
                                             <li>
                                                 <div class="label">raised</div>
-                                                <div class="value" data-raised="12731"><sup>$</sup>12,731</div>
+                                                <div class="value" data-raised="{{top.donated}}"><sup>$</sup>{{top.donated}}</div>
                                             </li>
                                             <li>
                                                 <div class="label">goal</div>
-                                                <div class="value" data-goal="22500" itemprop="target"><sup>$</sup>{{top.total_donation}}</div>
+                                                <div class="value" data-goal="{{top.total_donation}}" itemprop="target"><sup>$</sup>{{top.total_donation}}</div>
                                             </li>
                                         </ul>
                                         <div class="project-buttons">

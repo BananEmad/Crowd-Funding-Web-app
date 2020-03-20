@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 
 
 class Users (models.Model):
-    user_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     user_name = models.CharField(max_length=100, default=' ')
     user_img = models.ImageField(upload_to="user_images/")
     email = models.EmailField(default=None)

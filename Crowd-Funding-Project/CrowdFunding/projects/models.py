@@ -14,6 +14,7 @@ class Projects (models.Model):
     total_donation = models.IntegerField()
     donated = models.IntegerField(default=0)
     Percentage = models.IntegerField(default=0)
+    rate = models.IntegerField(default=0)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
