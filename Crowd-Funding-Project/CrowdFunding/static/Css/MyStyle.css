@@ -4,3 +4,14 @@
 .nav-menu > li{
     margin: 0 30px;
 }
+.owl-theme .owl-dots .owl-dot {
+    outline: none;
+}
+.owl-theme .owl-dots .owl-dot span {
+    width: 30px;
+    height: 10px;
+}
+
+.owl-stage{
+    margin:0 auto;
+}
