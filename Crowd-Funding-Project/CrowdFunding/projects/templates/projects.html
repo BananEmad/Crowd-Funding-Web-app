@@ -21,15 +21,15 @@
             <div class="fly-projects columns2 flex-container">
                 {% for project in all_projects %}
 
-                <div class="column">
+                <div class="column" onclick="location.href='{% url 'projects:project_details' project.id%}'" style="cursor: pointer;">
                     <!-- Project -->
                     <article class="fly-card fly-project fly-flip-effect" itemscope itemtype="http://schema.org/DonateAction">
                         <div class="boxed flip-front">
-                            <a class="project-media js-wave" href="project-details.html" itemprop="url">
-                                <img src="images/temp/project-1.jpg" alt="" itemprop="image" />
+                            <a class="project-media js-wave"  itemprop="url">
+                                <img src="/static/images/temp/{{ project.main_img_src}}" alt="" itemprop="image" />
                                 <span class="progress">
-                                    <span class="progress-label">0%</span>
-                                    <span class="progress-bar"></span>
+                                    <span class="progress-label" style="left: {{project.Percentage}}%">{{project.Percentage}} % </span>
+                                    <span class="progress-bar" style="width: {{project.Percentage}}%"></span>
                                 </span>
                             </a>
 
@@ -39,7 +39,7 @@
                                 </h3>
 
                                 <div class="project-location">
-                                    <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>Mombasa, Kenya</a>
+                                    <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>{{ project.project_Location}}</a>
                                 </div>
 
                                 <div class="project-description" itemprop="description">
@@ -52,7 +52,7 @@
                                     <ul class="project-stats">
                                         <li>
                                             <div class="label">raised</div>
-                                            <div class="value" data-raised="12731"><sup>$</sup>12,731</div>
+                                            <div class="value" data-raised="12731"><sup>$</sup>{{project.donated}}</div>
                                         </li>
                                         <li>
                                             <div class="label">goal</div>
