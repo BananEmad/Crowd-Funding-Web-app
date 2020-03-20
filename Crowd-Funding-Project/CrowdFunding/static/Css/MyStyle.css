@@ -18,3 +18,11 @@
 .page-sidebar .project-content{
     width: 100%;
 }
+
+.fly-service{
+    margin:0 auto;
+}
+
+.fly-service:before {
+    content: '' !important;
+}

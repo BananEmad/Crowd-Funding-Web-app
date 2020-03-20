@@ -11,6 +11,8 @@
     {% include  "Home/Includes/indexslider.html" %}
     <!--  end slider  -->
 
+
+
     <!-- Recent Posts -->
     <section class="section padding-bottom-50">
         <div class="section-heading">
@@ -28,20 +30,24 @@
                         <!-- Project -->
                         <article class="fly-card fly-project fly-flip-effect" itemscope itemtype="http://schema.org/DonateAction">
                             <div class="boxed flip-front">
-                                <a class="project-media js-wave" href="project-details.html" itemprop="url">
+                                <a class="project-media js-wave" href="/projects/{{top.id}}" itemprop="url">
                                     {% load static %}
-                                    <img src="{% static 'Images/temp/' %}project-1.jpg" alt="" itemprop="image" />
+                                    {% for image in latest5projectsimages %}
+                                    {% if image.project_id == top.id %}
+                                    <img src="{% static 'Images/temp/' %}{{image.img}}" alt="" itemprop="image" />
+                                    {% endif %}
+                                    {% endfor %}
                                     <span class="progress">
-                                        <span class="progress-label">0%</span>
-                                        <span class="progress-bar"></span>
+                                        <span class="progress-label" style="left:{{top.Percentage}}%">{{top.Percentage}}%</span>
+                                        <span class="progress-bar" style="width:{{top.Percentage}}%"></span>
                                     </span>
                                 </a>
                                 <div class="project-content">
                                     <h3 class="project-title" itemprop="name">
-                                        <a href="project-details.html">{{top.project_title}}</a>
+                                        <a href="/projects/{{top.id}}">{{top.project_title}}</a>
                                     </h3>
                                     <div class="project-location">
-                                        <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>Mombasa, Kenya</a>
+                                        <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>{{top.project_Location}}</a>
                                     </div>
                                     <div class="project-description" itemprop="description">
                                         <p class="projects_slider text-justify">
@@ -60,7 +66,7 @@
                                             </li>
                                         </ul>
                                         <div class="project-buttons">
-                                            <a href="project-details.html#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
+                                            <a href="/projects/{{top.id}}#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
                                         </div>
                                     </div>
                                 </div>
@@ -99,8 +105,34 @@
     <section class="section padding-bottom-70">
         <div class="section-heading">
             <div class="container">
+                <div class="section-subtitle">Select the project with category</div>
+                <h2 class="section-title" style="text-transform: uppercase;">categories</h2>
+            </div>
+        </div>
+    <!-- Services -->
+    <section class="flex-container fly-services">
+        {% for category in projectscategories %}
+        <div class="fly-service">
+            <div class="service-content">
+                <h3 class="title">{{category.category_name}}</h3>
+            </div>
+            <div class="service-buttons">
+                <a href="/projects_category/{{category.id}}" class="btn btn-medium js-wave">READ MORE</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <!--/ Services -->
+
+    </section>
+    <!--/ Current Projects -->
+
+    <!-- Current Projects -->
+    <section class="section padding-bottom-70">
+        <div class="section-heading">
+            <div class="container">
                 <div class="section-subtitle">what do we do</div>
-                <h2 class="section-title">Current Projects</h2>
+                <h2 class="section-title" style="text-transform: uppercase;">Latest Five Projects</h2>
             </div>
         </div>
 
@@ -111,8 +143,12 @@
                 <!-- Project -->
                 <article class="fly-card fly-project fly-flip-effect vertical" itemscope itemtype="http://schema.org/DonateAction">
                     <div class="boxed flip-front">
-                        <a class="project-media js-wave" href="project-details.html" itemprop="url">
-                            <img src="{% static 'Images/temp/' %}" alt="" itemprop="image" />
+                        <a class="project-media js-wave" href="/projects/{{last_project.id}}" itemprop="url">
+                            {% for image in latest5projectsimages %}
+                            {% if image.project_id == last_project.id %}
+                            <img src="{% static 'Images/temp/' %}{{image.img}}" alt="" itemprop="image" />
+                            {% endif %}
+                            {% endfor %}
                             <span class="progress">
                                 <span class="progress-label" style="left:{{last_project.Percentage}}%">{{last_project.Percentage}}%</span>
                                 <span class="progress-bar" style="width:{{last_project.Percentage}}%"></span>
@@ -120,7 +156,7 @@
                         </a>
                         <div class="project-content">
                             <h3 class="project-title" itemprop="name">
-                                <a href="project-details.html">{{last_project.project_title}}</a>
+                                <a href="/projects/{{last_project.id}}">{{last_project.project_title}}</a>
                             </h3>
 
                             <div class="project-location">
@@ -146,7 +182,7 @@
                                 </ul>
 
                                 <div class="project-buttons">
-                                    <a href="project-details.html#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
+                                    <a href="/projects/{{last_project.id}}#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
                                 </div>
                             </div>
                         </div>

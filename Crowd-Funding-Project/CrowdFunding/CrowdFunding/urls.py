@@ -9,4 +9,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.index),
     path('projects/', include('projects.urls', namespace='projects')),
+    path('projects_category/<int:id>', home_views.project_category),
 ]
