@@ -64,3 +64,6 @@ def project_details(request, id):
     }
     return render(request, 'project_details.html', context)
 
+
+def add_project():
+    return render(request, 'addprojects.html', context)
