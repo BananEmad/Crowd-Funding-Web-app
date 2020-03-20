@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 from categories.models import Categories
 from tags.models import Tags
 from users.models import Users
@@ -17,6 +19,7 @@ class Projects (models.Model):
     rate = models.IntegerField(default=0)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    created = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tags, on_delete=models.CASCADE)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)

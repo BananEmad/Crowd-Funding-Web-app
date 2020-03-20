@@ -99,3 +99,7 @@ for(let i = 0;i < $(".projects_slider").length; i++){
 for(let i = 0;i < $(".projects_details").length; i++){
     $(".projects_details")[i].innerText = truncateText('.projects_details', 250,i);
 }
+
+for(let i = 0;i < $(".latest5projects").length; i++){
+    $(".latest5projects")[i].innerText = truncateText('.latest5projects', 250,i);
+}
