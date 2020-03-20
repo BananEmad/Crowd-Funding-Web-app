@@ -65,3 +65,7 @@ def project_details(request, id):
         'images_list': images
     }
     return render(request, 'project_details.html', context)
+
+
+def add_project(request):
+    return render(request, 'addprojects.html')
