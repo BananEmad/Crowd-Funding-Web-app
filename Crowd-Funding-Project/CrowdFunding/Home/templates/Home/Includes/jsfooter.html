@@ -4,7 +4,7 @@
 <script src="{% static 'JS/libs/jquery-1.12.2.min.js' %}"></script>
 <script src="{% static 'JS/libs/jquery-ui-1.11.4.min.js' %}"></script>
 <script src="{% static 'JS/libs/bootstrap-3.3.6.min.js' %}"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <!-- Placeholders -->
 <script src="{% static 'JS/jquery.powerful-placeholder.min.js' %}"></script>
 
@@ -23,6 +23,15 @@
 
 <!-- CarouFredSel -->
 <script src="{% static 'JS/jquery.carouFredSel-6.2.1-packed.js' %}"></script>
+<script>
+    $.validate({
+    modules : 'location, date, security, file',
+    onModulesLoaded : function() {
+      $('#country').suggestCountry();
+    }
+  });
+
+</script>
 
 <!-- MouseWheel -->
 <script src="{% static 'JS/jquery.mousewheel.min.js' %}"></script>
