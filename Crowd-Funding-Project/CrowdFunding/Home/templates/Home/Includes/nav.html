@@ -32,7 +32,7 @@
 						</ul>
 					</li>
 					<li class="{{project}}">
-						<a href="projects">Projects</a>
+						<a href="/projects">Projects</a>
 						<ul class="hidden">
 							<li><a href="projects.html">Projects Listed Style</a></li>
 							<li><a href="projects-2cols.html">Projects 2 Columns</a></li>
@@ -63,18 +63,20 @@
 <!--							<li><a href="blog-details.html">Blog Details</a></li>-->
 <!--						</ul>-->
 <!--					</li>-->
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="register.html">Register</a></li>
+
+					<li><a href="/about.html">About</a></li>
+					<li><a href="/contact.html">Contact</a></li>
+					<li><a href="/login.html">Login</a></li>
+					<li><a href="/register.html">Register</a></li>
 					<li><a href="/profile/1">Profile</a></li>
+
 				</ul>
 				<!--/ Dropdown Menu -->          
 
 				<!-- Search Form -->
-				<form action="#" class="form-search-header">
-					<input type="search" name="site-search" class="form-control" placeholder="search for something" required />
-					<button type="submit" name="site-search-submit" class="form-submit material-icons">search</button>
+				<form action="/projects_search/" class="form-search-header" method="get">
+					<input type="search" name="project_title" class="form-control" placeholder="search for something" required />
+					<button type="submit" class="form-submit material-icons">search</button>
 				</form>
 				<!--/ Search Form -->
 			</div>

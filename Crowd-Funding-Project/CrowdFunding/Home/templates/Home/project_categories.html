@@ -3,7 +3,7 @@
 <!-- the title of page -->
 {% block title %}Projects{% endblock %}
 
-<!-- this is navbar : for active url ( project with index or project or you can make li in nav.html and type in his class the name of call ) -->
+<!-- this is navbar : for active url ( index variable you can change it with index or project or you can make (li -> List of item) in nav.html and type in his class the name of call ) -->
 {% block navbar %}
         {% include  "Home/Includes/nav.html" with project='current-menu-item' only %}
 {% endblock %}
@@ -11,40 +11,50 @@
 <!-- the contain of body -->
 {% block contain %}
     <!--  this slider for any page only without index  -->
-    {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Projects' page_subtitle_slide='what do you think about me ?' %}
+    <!--
+        there is three variables
+        1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+        2- page_title_slide     >>>> this is will be the title of the slide
+        3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+     -->
+    {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Projects Categories' page_subtitle_slide='what do you think about me ?' %}
 
     <!--  here will be your section ( here )  -->
 
     <!-- Projects Grid Style -->
     <section class="section">
         <div class="container">
-            <div class="fly-projects columns2 flex-container">
-                {% for project in all_projects %}
-                {% load static %}
-                <div class="column" onclick="location.href='{% url 'projects:project_details' project.id%}'" style="cursor: pointer;">
+            <div class="fly-projects columns3 flex-container">
+                {% for project in projects %}
+                <div class="column">
                     <!-- Project -->
+                    {% load static %}
                     <article class="fly-card fly-project fly-flip-effect" itemscope itemtype="http://schema.org/DonateAction">
                         <div class="boxed flip-front">
-                            <a class="project-media js-wave"  itemprop="url">
-                                <img src="{% static 'Images/temp/' %}{{ project.main_img_src}}" alt="" itemprop="image" />
+                            <a class="project-media js-wave" href="/projects/{{project.id}}" itemprop="url">
+                                {% for image in projectsimages %}
+                                {% if image.project_id == project.id %}
+                                <img src="{% static 'Images/temp/' %}{{image.img}}" alt="" itemprop="image" />
+                                {% endif %}
+                                {% endfor %}
                                 <span class="progress">
-                                    <span class="progress-label" style="left: {{project.Percentage}}%">{{project.Percentage}} % </span>
-                                    <span class="progress-bar" style="width: {{project.Percentage}}%"></span>
+                                    <span class="progress-label" style="left:{{project.Percentage}}%">{{project.Percentage}}%</span>
+                                    <span class="progress-bar" style="width:{{project.Percentage}}%"></span>
                                 </span>
                             </a>
 
                             <div class="project-content">
                                 <h3 class="project-title" itemprop="name">
-                                    <a href="project-details.html">{{ project.project_title }}</a>
+                                    <a href="/projects/{{project.id}}">{{project.project_title}}</a>
                                 </h3>
 
                                 <div class="project-location">
-                                    <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>{{ project.project_Location}}</a>
+                                    <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>{{project.project_Location}}</a>
                                 </div>
 
                                 <div class="project-description" itemprop="description">
-                                    <p class="projects_details">
-                                      {{ project.project_details }}
+                                    <p class="latest5projects">
+                                        {{project.project_details}}
                                     </p>
                                 </div>
 
@@ -56,12 +66,12 @@
                                         </li>
                                         <li>
                                             <div class="label">goal</div>
-                                            <div class="value" data-goal="{{ project.total_donation }}" itemprop="target"><sup>$</sup>{{ project.total_donation }}</div>
+                                            <div class="value" data-goal="{{project.total_donation}}" itemprop="target"><sup>$</sup>{{project.total_donation}}</div>
                                         </li>
                                     </ul>
 
                                     <div class="project-buttons">
-                                        <a href="project-details.html#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
+                                        <a href="/projects/{{project.id}}#donateForm" class="btn btn-yellow js-wave" itemprop="potentialAction">Donate</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,10 +102,6 @@
                     <!--/ Project -->
                 </div>
                 {% endfor %}
-
-
-
-
             </div>
 
             <!-- Pagination -->

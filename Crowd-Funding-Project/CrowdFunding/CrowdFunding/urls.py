@@ -15,6 +15,8 @@ urlpatterns = [
     path('editUser/', user_views.editUser),
     path('addInfo/', user_views.addInfo),
     path('projects/', include('projects.urls', namespace='projects')),
+    path('projects_category/<int:id>', home_views.project_category),
+    path('projects_search/', home_views.project_search),
 ]
 
 if settings.DEBUG:
