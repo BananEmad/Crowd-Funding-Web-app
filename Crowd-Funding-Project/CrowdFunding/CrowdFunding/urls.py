@@ -1,6 +1,8 @@
 
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from Home import views as home_views
 from users import views as user_views
@@ -10,6 +12,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.index),
     path('profile/<int:user_id>', user_views.profile),
-    path('editUser/<int:user_id>', user_views.editUser),
+    path('editUser/', user_views.editUser),
+    path('addInfo/', user_views.addInfo),
     path('projects/', include('projects.urls', namespace='projects')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

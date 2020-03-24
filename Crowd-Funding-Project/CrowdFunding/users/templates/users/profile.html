@@ -11,26 +11,26 @@
 <!-- the contain of body -->
 {% block contain %}
 {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Mohamed' page_subtitle_slide='Welcome in your profile !' %}
-
+{% load static %}
 <!--  here will be your section ( here )  -->
 <div class="container emp-profile">
 
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+
+                <img src="/media/{{user.user_img}}"
                      alt=""/>
             </div>
         </div>
         <div class="col-md-6">
             <div class="profile-head">
                 <h5>
-                    Kshiti Ghelani
+                    {{user.first_name}} {{user.last_name}}
                 </h5>
                 <h6>
-                    Web Developer and Designer
+                    {{user.email}}
                 </h6>
-                <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -58,25 +58,55 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" id="registration-form" class="form-group">
+                            <form action="/editUser/" id="registration-form" class="form-group" method="post" enctype="multipart/form-data">
+                                <input name="id" value="{{user.id}}" hidden>
+                                <p>
+                                    First name
+                                    <input name="first_name" value="{{user.first_name}}" class="form-control"
+                                           data-validation="length alphanumeric"
+                                           data-validation-length="3-12"
+                                           data-validation-error-msg="first name has to be an alphanumeric value (3-12 chars)">
+                                </p>
+                                <p>
+                                    Last name
+                                    <input name="last_name" value="{{user.last_name}}" class="form-control"
+                                           data-validation="length alphanumeric"
+                                           data-validation-length="3-12"
+                                           data-validation-error-msg="last name has to be an alphanumeric value (3-12 chars)">
+                                </p>
+                                <p>
+                                    E-mail
+                                    <input name="email" data-validation="email" value="{{user.email}}" class="form-control">
+                                </p>
+                                <p>
+                                    Phone
+                                    <input name="phone" value="{{user.user_phone}}" class="form-control"
+                                           data-validation="length alphanumeric"
+                                           data-validation-length="11"
+                                           data-validation-error-msg="Phone has to be an alphanumeric value (3-12 chars)">
+                                </p>
                                 <p>
                                     User name
-                                    <input name="user" class="form-control" data-validation="length alphanumeric"
+                                    <input name="user_name" value="{{user.username}}" class="form-control"
+                                           data-validation="length alphanumeric"
                                            data-validation-length="3-12"
                                            data-validation-error-msg="User name has to be an alphanumeric value (3-12 chars)">
                                 </p>
                                 <p>
                                     Password
-                                    <input name="pass_confirmation" class="form-control" data-validation="strength"
+                                    <input type="password" name="password_confirmation" value="{{user.password}}"
+                                           class="form-control" data-validation="strength"
                                            data-validation-strength="2">
                                 </p>
                                 <p>
                                     Repeat password
-                                    <input name="pass" class="form-control" data-validation="confirmation">
+                                    <input type="password" name="password" value="{{user.password}}"
+                                           class="form-control" data-validation="confirmation">
                                 </p>
                                 <p>
                                     Birth date
-                                    <input name="birth" class="form-control" data-validation="birthdate"
+                                    <input type="date" name="birthday" class="form-control" value="{{user.user_birthday}}"
+                                           data-validation="birthdate"
                                            data-validation-help="yyyy-mm-dd">
                                 </p>
                                 <p>
@@ -337,11 +367,11 @@
                                     <input name="image" type="file" class="form-control"
                                            data-validation="mime size required"
                                            data-validation-allowing="jpg, png"
-                                           data-validation-max-size="300kb"
+                                           data-validation-max-size="3000kb"
                                            data-validation-error-msg-required="No image selected">
                                 </p>
                                 <p>
-                                    <input type="submit" class="btn btn-primary" value="Edit">
+                                    <input type="submit" name="edit" class="btn btn-primary" value="Edit">
                                     <input type="reset" class="btn btn-primary" value="Reset form">
                                 </p>
                             </form>
@@ -357,11 +387,12 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <form action="" id="add-form" class="form-group">
+            <form action="/addInfo/" id="add-form" class="form-group" method="post">
                 <p class="h4">Optional Info</p>
+                <input name="id" value="{{user.id}}" hidden/>
                 <p>
                     Birth date
-                    <input name="birth" class="form-control" data-validation="birthdate"
+                    <input type="date" name="birthday" class="form-control" data-validation="birthdate"
                            data-validation-help="yyyy-mm-dd">
                 </p>
                 <p>
@@ -622,7 +653,7 @@
                     <input name="facebook_profile" class="form-control">
                 </p>
                 <p>
-                    <input type="submit" class="btn btn-primary" value="Add">
+                    <input type="submit" name="add" class="btn btn-primary" value="Add">
                     <input type="reset" class="btn btn-primary" value="Reset form">
                 </p>
             </form>
@@ -635,15 +666,31 @@
                             <label>User Id</label>
                         </div>
                         <div class="col-md-6">
-                            <p>Kshiti123</p>
+                            <p>{{user.id}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Name</label>
+                            <label>Username</label>
                         </div>
                         <div class="col-md-6">
-                            <p>Kshiti Ghelani</p>
+                            <p>{{user.username}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>First Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{user.first_name}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Last Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{user.last_name}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -651,7 +698,7 @@
                             <label>Email</label>
                         </div>
                         <div class="col-md-6">
-                            <p>kshitighelani@gmail.com</p>
+                            <p>{{user.email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -659,15 +706,50 @@
                             <label>Phone</label>
                         </div>
                         <div class="col-md-6">
-                            <p>123 456 7890</p>
+                            <p>{{user.user_phone}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Profession</label>
+                            <label>Birthday</label>
                         </div>
                         <div class="col-md-6">
-                            <p>Web Developer and Designer</p>
+                            <p>
+                                {% if user.user_birthday %}
+                                {{user.user_birthday}}
+                                {% else %}
+                                Unknown
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Country</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                {% if user.user_country %}
+                                {{user.user_country}}
+                                {% else %}
+                                Unknown
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Facebook Profile</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                {% if user.user_fb %}
+                                <a href="{{user.user_fb}}" target="_blank">go to your facebook</a>
+                                {% else %}
+                                Unknown
+                                {% endif %}
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -676,6 +758,97 @@
     </div>
 
 </div>
+{% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-10.jpg' page_title_slide='My Projects' %}
+<section class="section">
+    <div class="container">
+        <div class="fly-projects columns3 flex-container">
+            {% for project in projects %}
+            <div class="column">
+                <!-- Project -->
+                <article class="fly-card fly-project fly-flip-effect" itemscope
+                         itemtype="http://schema.org/DonateAction">
+                    <div class="boxed flip-front">
+                        <a class="project-media js-wave" href="/project/{{project.id}}" itemprop="url">
+                            <img src="{% static 'Images/temp/project-1.jpg' %}" alt="" itemprop="image"/>
+                            <span class="progress">
+                                    <span class="progress-label" style="left:{{project.Percentage}}%">{{project.Percentage}}%</span>
+                                    <span class="progress-bar" style="width:{{project.Percentage}}%"></span>
+                                </span>
+                        </a>
+
+                        <div class="project-content">
+                            <h3 class="project-title" itemprop="name">
+                                <a href="/project/{{project.id}}">{{project.project_title}}</a>
+                            </h3>
+
+                            <div class="project-location">
+                                <a href="#" class="flip-button" itemprop="location"><i class="material-icons">location_on</i>{{project.project_Location}}</a>
+                            </div>
+
+                            <div class="project-description" itemprop="description">
+                                <p>
+                                    {{project.project_details}}
+                                </p>
+                            </div>
+
+                            <div class="project-footer">
+                                <ul class="project-stats">
+                                    <li>
+                                        <div class="label">raised</div>
+                                        <div class="value" data-raised="{{project.donated}}"><sup>$</sup>{{project.donated}}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="label">goal</div>
+                                        <div class="value" data-goal="{{project.total_donation}}" itemprop="target">
+                                            <sup>$</sup>{{project.total_donation}}
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="project-buttons">
+                                    <a href="/project/{{project.id}}#donateForm" class="btn btn-yellow js-wave"
+                                       itemprop="potentialAction">Donate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boxed flip-back">
+                        <div class="card-map" data-placeholder="waiting for map">
+                            <div class="google-map"
+                                 data-map-zoom="14"
+                                 data-map-type="roadmap"
+                                 data-map-style="onehope"
+                                 data-map-address="1998 Hulman Blvd, Speedway, IN, 46222"
+                                 data-map-marker="images/marker.png"
+                                 data-map-marker-size="[31,46]"
+                                 data-map-marker-anchor="[16,46]">
+                                <!--                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7291202.857007517!2d26.381827612091957!3d26.83493778143627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2sEgypt!5e0!3m2!1sen!2seg!4v1585004012813!5m2!1sen!2seg" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
+                                <!-- May use data-map-coords="39.795180;-86.234819" instead of data-map-address -->
+                            </div>
+                        </div>
+
+                        <ul class="card-social">
+                            <li><a href="#" class="fa fa-facebook js-wave"></a></li>
+                            <li><a href="#" class="fa fa-twitter js-wave"></a></li>
+                            <li><a href="#" class="fa fa-instagram js-wave"></a></li>
+                            <li><a href="#" class="fa fa-google js-wave"></a></li>
+                        </ul>
+                    </div>
+                </article>
+                <!--/ Project -->
+            </div>
+            {% empty %}
+
+            <a href="#" class="btn btn-success btn-large" style="margin-left: 40%;">Create Your First Project</a>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}
