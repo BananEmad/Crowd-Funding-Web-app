@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from projects.models import Projects
 from django.core.files.storage import FileSystemStorage
 
+from django.contrib.auth import authenticate, logout, login
+from django.contrib import messages
+
 
 # Create your views here.
 
@@ -74,3 +77,65 @@ def addInfo(request):
         return redirect("/profile/" + user_id)
     else:
         return render(request, "users/404.html")
+
+
+def register(request):
+    context = {}
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        phone = request.POST['phone']
+
+        uploaded_pic = request.FILES['picture']
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_pic.name, uploaded_pic)
+        context['url'] = fs.url(name)
+        if password == password2:
+
+            user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name,
+                                            last_name=last_name)
+            user.save()
+
+            users_info = Users(phone=phone, user_img=uploaded_pic.name, user=user)
+            users_info.save()
+
+            messages.success(request, 'congratulations {} '.format(username))
+            return redirect('login')
+        else:
+            messages.warning(request, 'password is not same')
+            return redirect('register')
+
+    return render(request, 'users/register.html', {
+        'title': 'register',
+
+    })
+
+
+def login_user(request):
+    if request.method == 'POST':
+
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            print(request.session)
+            return redirect('/')
+        else:
+            messages.warning(request, 'your username or password is wrong')
+
+    return render(request, 'users/login.html', {
+        'title': 'login',
+
+    })
+
+
+def logout_user(request):
+    logout(request)
+    return render(request, 'users/logout.html', {
+        'title': 'sign out'
+    })

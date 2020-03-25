@@ -99,3 +99,15 @@
 .form-group.has-validation-callback{
     margin-top: 25px
 }
+
+.register,.login,.logout{
+    padding:100px;
+    margin-top:131px;
+    margin-bottom:131px;
+    background:#0fbcf9;
+}
+.register input{
+    border:1px solid black;
+    padding :10px ;
+    background-color:white;
+}

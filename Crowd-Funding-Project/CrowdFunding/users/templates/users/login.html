@@ -1,0 +1,55 @@
+{% extends  "Home/Includes/base.html" %}
+
+<!-- the title of page -->
+{% block title %}Projects{% endblock %}
+
+<!-- this is navbar : for active url ( index variable you can change it with index or project or you can make (li -> List of item) in nav.html and type in his class the name of call ) -->
+{% block navbar %}
+        {% include  "Home/Includes/nav.html" with login='current-menu-item' only %}
+{% endblock %}
+
+<!-- the contain of body -->
+{% block contain %}
+    <!--  this slider for any page only without index  -->
+    <!--
+        there is three variables
+        1- image_slide_name     >>>> this is will be the name of image and the url of image is ( Images/temp/ )
+        2- page_title_slide     >>>> this is will be the title of the slide
+        3- page_subtitle_slide  >>>> this is will be ths subtitle of slide
+     -->
+    {% include  "Home/Includes/singleSlide.html" with image_slide_name='slide-9.jpg' page_title_slide='Projects' page_subtitle_slide='what do you think about me ?' %}
+
+    <!--  here will be your section ( here )  -->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 mt-5">
+                <div  class="login ">
+                <h3 class="border-bottom mb-3"> login </h3>
+                    {% if messages%}
+                {% for message in messages %}
+                <div class="alert alert-success">{{message}}</div>
+                {% endfor %}
+                {% endif %}
+
+                   <form method="POST">
+                       {%csrf_token%}
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">User Name</label>
+                        <input type="text" class="form-control" name="username" id="id_username" aria-describedby="emailHelp" placeholder="user name">
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="id_password" placeholder="password">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">login</button>
+                </form>
+                    <small> if you have not  account you can register from here<a href="#">register</a> </small>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
