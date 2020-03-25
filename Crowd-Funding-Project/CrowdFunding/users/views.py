@@ -19,7 +19,7 @@ def profile(request, user_id):
         print(projects)
         context = {
             "user": user[0],
-            # "projects": projects
+            "projects": projects
         }
 
         return render(request, "users/profile.html", context)

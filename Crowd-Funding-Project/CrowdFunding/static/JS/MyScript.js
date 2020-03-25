@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 $.validate({
     modules : 'location, date, security, file',
     onModulesLoaded : function() {
       $('#country').suggestCountry();
     }
   });
-=======
+
 var owl = $('.owl-carousel');
 let count = $('.owl-carousel .item').length
 console.log("mohamed sabry elnagar",count)
@@ -111,4 +110,4 @@ for(let i = 0;i < $(".projects_details").length; i++){
 for(let i = 0;i < $(".latest5projects").length; i++){
     $(".latest5projects")[i].innerText = truncateText('.latest5projects', 250,i);
 }
->>>>>>> 394e5cefb3c671693b9239307f5b20015aaaae01
+
